@@ -1,3 +1,4 @@
+const browserify = require('browserify-middleware')
 const express = require('express')
 const expressWebSocket = require('express-ws')
 const websocketStream = require('websocket-stream/stream')
@@ -7,11 +8,12 @@ const through2 = require('through2')
 const ram = require('random-access-memory')
 const toBuffer = require('to-buffer')
 const hypercore = require('hypercore')
-const Multicore = require('./multicore')
+const Multicore = require('./script/multicore')
 
 const app = express()
 
-app.use(express.static('.'))
+app.use('/js', browserify(__dirname + '/script'))
+app.use(express.static(__dirname + '/public'))
 
 expressWebSocket(app, null, {
   perMessageDeflate: false
