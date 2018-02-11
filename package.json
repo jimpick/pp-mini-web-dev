@@ -4,8 +4,7 @@
   "description": "Experiment with hypercore and websockets",
   "main": "server.js",
   "scripts": {
-    "build": "browserify index.js -o bundle.js",
-    "start": "npm run build && node server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "browserify-middleware": "^8.0.0",
@@ -19,7 +18,6 @@
     "websocket-stream": "^5.1.1",
     "babel-core": "^6.26.0",
     "babelify": "^8.0.0",
-    "browserify": "^15.2.0",
     "immutable": "^3.8.2",
     "transit-immutable-js": "^0.7.0",
     "transit-js": "^0.8.846",
